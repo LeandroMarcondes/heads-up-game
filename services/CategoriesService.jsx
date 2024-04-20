@@ -40,7 +40,7 @@ class CategoriesService {
                     "blueberry",
                     "watermelon",
                     "orange",
-                    
+
                     
                 ]
             },
@@ -919,6 +919,9 @@ class CategoriesService {
     }
 
     static getSelectedCategories() {
+        
+        if (typeof window === 'undefined') return [];
+        
         const selectedCategories = JSON.parse(localStorage.getItem('selected-categories')) || [];
         const allCategories = CategoriesService.getAllCategories();
         const selectedCategoriesData = [];

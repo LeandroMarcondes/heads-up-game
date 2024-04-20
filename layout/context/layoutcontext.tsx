@@ -5,9 +5,15 @@ export const LayoutContext = createContext({} as LayoutContextProps);
 
 export const LayoutProvider = ({ children }: ChildContainerProps) => {
     const [layoutConfig, setLayoutConfig] = useState<LayoutConfig>(() => {
-        const localColorScheme = localStorage.getItem('layout-color-scheme');
+
+        let localColorScheme = null;
+
+        if (typeof window !== 'undefined') {
+            localColorScheme = localStorage.getItem('layout-color-scheme');
+        }
+
         const theme = 'soho-' + (localColorScheme ? localColorScheme : 'light');
-        console.log('theme', theme);
+        
         return {
             ripple: true,
             inputStyle: 'outlined',

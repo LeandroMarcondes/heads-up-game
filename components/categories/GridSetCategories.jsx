@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import CategoriesService from '../../services/CategoriesService';
 
-const GridSetCategories = ({callback}) => {
+const GridSetCategories = ({ callback }) => {
     const [selectedCategories, setSelectedCategories] = useState([]);
     const allCategories = CategoriesService.getAllCategories();
 
@@ -22,7 +22,10 @@ const GridSetCategories = ({callback}) => {
             updatedCategories = [...selectedCategories, categoryCode];
         }
         setSelectedCategories(updatedCategories);
-        localStorage.setItem('selected-categories', JSON.stringify(updatedCategories));
+
+        if (typeof window !== 'undefined') {
+            localStorage.setItem('selected-categories', JSON.stringify(updatedCategories));
+        }
 
         callback(updatedCategories?.length);
     };
@@ -58,7 +61,7 @@ const GridSetCategories = ({callback}) => {
         <>
             <div className="grid mb-5">
                 <div className="col-12 mb-2" >
-                {selectedCategories?.length} {selectedCategories?.length === 1 ? 'category' : 'categories'} selected
+                    {selectedCategories?.length} {selectedCategories?.length === 1 ? 'category' : 'categories'} selected
                 </div>
                 {allCategories.map(category => (
                     displayCategory(category)
@@ -69,7 +72,7 @@ const GridSetCategories = ({callback}) => {
 }
 
 GridSetCategories.defaultProps = {
-    callback: (numberOfSelected) => {}
+    callback: (numberOfSelected) => { }
 };
 
 export default GridSetCategories;

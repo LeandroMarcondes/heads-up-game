@@ -25,7 +25,9 @@ const AppTopbar = forwardRef<AppTopbarRef>((props, ref) => {
     const _changeTheme = (theme: string, colorScheme: string) => {
         changeTheme?.(layoutConfig.theme, theme, 'theme-css', () => {
             setLayoutConfig((prevState: LayoutConfig) => ({ ...prevState, theme, colorScheme }));
-            localStorage.setItem('layout-color-scheme',colorScheme);
+            if (typeof window !== 'undefined') {
+                localStorage.setItem('layout-color-scheme', colorScheme);
+            }
         });
     };
 
