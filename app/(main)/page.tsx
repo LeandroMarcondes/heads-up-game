@@ -21,7 +21,7 @@ const Dashboard = () => {
     useEffect(() => {
         const loadedLocalStorage = localStorage.getItem('selected-categories');
         if(!loadedLocalStorage) return; 
-        
+
         const storedCategories = JSON.parse(loadedLocalStorage ?? '') || [];
         setSelectedCategories(storedCategories);
         
@@ -87,7 +87,7 @@ const Dashboard = () => {
 
     return (
         <div className=''>
-            <div className="flex align-items-center justify-content-center">ss{selectedCategories?.length}
+            <div className="flex align-items-center justify-content-center">
                 <div className="flex align-items-center justify-content-center">
                     Your Word is:
                 </div>
