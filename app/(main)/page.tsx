@@ -19,7 +19,10 @@ const Dashboard = () => {
     const avalableWords = CategoriesService.getSelectedCategories();
 
     useEffect(() => {
-        const storedCategories = JSON.parse(localStorage.getItem('selected-categories') ?? '') || [];
+        const loadedLocalStorage = localStorage.getItem('selected-categories');
+        if(!loadedLocalStorage) return; 
+        
+        const storedCategories = JSON.parse(loadedLocalStorage ?? '') || [];
         setSelectedCategories(storedCategories);
         
     }, []);
@@ -38,6 +41,10 @@ const Dashboard = () => {
     };
 
     const getWord = () => {
+        if (avalableWords?.length <= 0) {
+            return;
+        }
+
         let randomCategoryIndex = Math.floor(Math.random() * avalableWords.length);
         let randomWordIndex = Math.floor(Math.random() * avalableWords[randomCategoryIndex].words.length);
         let _currentWord = avalableWords[randomCategoryIndex].words[randomWordIndex];
@@ -80,7 +87,7 @@ const Dashboard = () => {
 
     return (
         <div className=''>
-            <div className="flex align-items-center justify-content-center">
+            <div className="flex align-items-center justify-content-center">ss{selectedCategories?.length}
                 <div className="flex align-items-center justify-content-center">
                     Your Word is:
                 </div>
