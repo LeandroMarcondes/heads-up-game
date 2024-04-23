@@ -47,6 +47,11 @@ const GridSetCategories = ({ callback }) => {
 
         if (typeof window !== 'undefined') {
             localStorage.setItem('selected-categories', JSON.stringify(updatedCategories));
+
+            if(localStorage.getItem('custom-category-title')) {
+                localStorage.setItem('custom-category-selected', JSON.stringify(!allSelect));
+                setIsCustomSelected(!allSelect);
+            }
         }
 
         callback(updatedCategories?.length);

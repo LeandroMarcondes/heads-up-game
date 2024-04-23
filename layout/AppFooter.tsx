@@ -3,12 +3,14 @@
 import React, { useContext } from 'react';
 
 const AppFooter = () => {
-   
+
     return (
-        <div className="layout-footer">            
-            A game made by
-            <span className="font-medium ml-2">Leandro Abreu</span>
-            <small className='text-500 mx-2'>Powered by PrimeReact</small>
+        <div className="layout-footer">
+            <div>
+                Made with <i className='pi pi-heart text-red-600 text-xs mx-1' ></i> by
+                <span className="font-medium ml-1">Leandro Abreu</span>
+            </div>
+            
         </div>
     );
 };

@@ -38,7 +38,7 @@ const Dashboard = () => {
     }, []);
 
     useEffect(() => {
-        if (timeToNextWord <= 1) {
+        if (timeToNextWord === 1) {
             getWord();
         }
     }, [timeToNextWord]);
@@ -137,8 +137,8 @@ const Dashboard = () => {
                     {!currentWord && <h1 className='text-3xl'>Que isso Magida!!</h1>}
                 </div>
             </div>
-            <div className="flex align-items-end justify-content-between h-6rem m-5">
-                <div className="flex align-items-center justify-content-center">
+            <div className="flex align-items-end justify-content-between h-4rem my-3 pb-3">
+                <div className="flex align-items-center justify-content-center mr-2">
                     <small className='text-700'>Theme: {currentCategory?.title}</small>
                 </div>
                 <div className="flex align-items-center justify-content-center">

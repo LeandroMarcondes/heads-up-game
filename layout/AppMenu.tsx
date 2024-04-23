@@ -18,12 +18,12 @@ const AppMenu = () => {
         {
             label: 'Categories',
             items: [
-                { label: 'Select Categories', icon: 'pi pi-fw pi-id-card', to: '/pages/category' },
+                { label: 'Select Categories', icon: 'pi pi-fw pi-th-large', to: '/pages/category' },
                 { label: 'Custom Category', icon: 'pi pi-fw pi-star-fill', to: '/pages/category/custom' },
-                
+
             ]
         },
-        
+
     ];
 
     return (
@@ -31,8 +31,12 @@ const AppMenu = () => {
             <ul className="layout-menu">
                 {model.map((item, i) => {
                     return !item?.seperator ? <AppMenuitem item={item} root={true} index={i} key={item.label} /> : <li className="menu-separator"></li>;
-                })}                
+                })}
+
             </ul>
+            <div style={{position:'absolute', bottom:'10px'}}>
+                <small className='text-500 mx-3'>Powered by <a target='_blank' href='https://primereact.org/'>PrimeReact</a></small>
+            </div>
         </MenuProvider>
     );
 };
