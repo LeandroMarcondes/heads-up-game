@@ -1,12 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
+import React, {  useEffect, useRef, useState } from 'react';
 import { Button } from 'primereact/button';
 import { Chips } from 'primereact/chips';
 import { InputSwitch } from 'primereact/inputswitch';
 import { InputText } from 'primereact/inputtext';
 import { Toast } from 'primereact/toast';
 import { Nullable } from 'primereact/ts-helpers';
-import React, {  useEffect, useRef, useState } from 'react';
+import { ConfirmPopup } from 'primereact/confirmpopup'; // To use <ConfirmPopup> tag
+import { confirmPopup } from 'primereact/confirmpopup'; // To use confirmPopup method
 
 const FromEditCustomCategory = () => {
 
@@ -65,6 +67,17 @@ const FromEditCustomCategory = () => {
         setIsCustomSelected(false);
         setFormData({ theme: '', words: [] });
     };
+
+    const deleteConfirmation = (event: React.MouseEvent<HTMLButtonElement>) => {
+        confirmPopup({
+            target: event.currentTarget,
+            message: 'Do you want to delete the category?',
+            icon: 'pi pi-info-circle',
+            acceptClassName: 'p-button-danger',
+            accept: onDelete,            
+        });
+    };
+
     return (
         <>
             <Toast ref={saveToast} />
@@ -103,16 +116,17 @@ const FromEditCustomCategory = () => {
                                             onChange={(e) => setFormData((prevState) => ({ ...prevState, words: e?.value as string[] }))} />
                                     </div>
                                 </div>
-                                <div className="col-12 lg:col-6 xl:col-6">
+                                <div className="col-6 lg:col-6 xl:col-6">
                                     <Button
                                         onClick={(e) => { onSaveCustomCategory(e) }}
                                         label='Save' icon='pi pi-save'
                                         className='p-button-primary p-button-text-icon-left' />
 
                                 </div>
-                                <div className="col-12 lg:col-6 xl:col-6 text-right">
+                                <div className="col-6 lg:col-6 xl:col-6 text-right">
+                                    <ConfirmPopup />
                                     <Button
-                                        onClick={(e) => { onDelete()}}
+                                        onClick={(e) => { deleteConfirmation(e)}}
                                         label='Delete' icon='pi pi-trash'
                                         severity='danger'
                                         text
