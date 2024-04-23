@@ -86,8 +86,8 @@ const Dashboard = () => {
 
         return (
             <div className='grid'>
-                <div className='col-12 lg:col-12 xl:12'>
-                    <h1>Please select some Categories :)</h1>
+                <div className='col-12 lg:col-12 xl:12 text-center'>
+                    <h1>Select Categories Before Start =^.^=</h1>
                 </div>
                 <div className='col-12 lg:col-12 xl:12'>
                     <GridSetCategories callback={(selected: number) => { onSelectCategories(selected) }} />
