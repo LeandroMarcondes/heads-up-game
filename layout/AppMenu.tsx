@@ -13,12 +13,13 @@ const AppMenu = () => {
     const model: AppMenuItem[] = [
         {
             label: 'Home',
-            items: [{ label: 'Game Board', icon: 'pi pi-fw pi-home', to: '/' }]
+            items: [{ label: 'Play The Game', icon: 'pi pi-fw pi-play', to: '/' }]
         },
         {
             label: 'Categories',
             items: [
                 { label: 'Select Categories', icon: 'pi pi-fw pi-id-card', to: '/pages/category' },
+                { label: 'Custom Category', icon: 'pi pi-fw pi-star-fill', to: '/pages/category/custom' },
                 
             ]
         },

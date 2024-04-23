@@ -1,5 +1,6 @@
 class CategoriesService {
     static getAllCategories() {
+
         return [
             {
                 code: 1,
@@ -41,7 +42,7 @@ class CategoriesService {
                     "watermelon",
                     "orange",
 
-                    
+
                 ]
             },
             {
@@ -137,7 +138,7 @@ class CategoriesService {
                     "Back to the Future",
                     "Gladiator",
                     "The Dark Knight",
-                    "The Avengers",                    
+                    "The Avengers",
                     "The Silence of the Lambs",
                     "Fight Club",
                     "The Lion King",
@@ -150,7 +151,7 @@ class CategoriesService {
                     "The Shawshank Redemption",
                     "Goodfellas",
                     "Schindler's List",
-                    "The Green Mile",                    
+                    "The Green Mile",
                     "The Shawshank Redemption",
                     "The Godfather",
                     "Pulp Fiction",
@@ -167,7 +168,7 @@ class CategoriesService {
                     "The Dark Knight",
                     "The Avengers",
                     "Interstellar",
-                    
+
                     "Fight Club",
                     "The Lion King",
                     "E.T. the Extra-Terrestrial",
@@ -272,11 +273,6 @@ class CategoriesService {
                     "Maggie Simpisons",
                     "Mr. Burns (Simpisons) ",
                     "Ned Flanders (Simpisons)",
-
-                    
-                    
-
-
                 ]
             },
             {
@@ -397,9 +393,9 @@ class CategoriesService {
                     "Beaver",
                     "Hamster",
                     "Guinea Pig",
-                    "Parrot",                    
+                    "Parrot",
                     "Goldfish",
-                    
+
 
                 ]
             },
@@ -440,10 +436,24 @@ class CategoriesService {
                     "Umbrella",
                     "Guitar",
                     "Microphone",
-                    
+                    "Drums",
+                    "Microscope",
+                    "Microwave",
+                    "Speaker",
+                    "Television",
+                    "Laundry Machine",
+                    "Ladder",
+                    "Hammer",
+                    "Nail",
+                    "Screwdriver",
+                    "Saw",
+                    "Photo Frame",
+                    "Candle",
+                    "Vase",
+                    "Flower",
                 ]
             },
-            
+
             {
                 code: 10,
                 title: 'TV Shows',
@@ -500,7 +510,7 @@ class CategoriesService {
                     "The Nanny",
                     "The Golden"
                 ]
-            },            
+            },
             {
                 code: 11,
                 title: 'Famous People',
@@ -555,7 +565,7 @@ class CategoriesService {
                     "Michael Jackson",
                     "John Lennon",
                     "Freddie Mercury",
-                    
+
                 ]
             },
             {
@@ -610,7 +620,7 @@ class CategoriesService {
                     "Apex Legends",
                     "Genshin Impact",
                     "The Last of Us",
-                    "Mario Kart",                    
+                    "Mario Kart",
                     "Donkey Kong",
                     "Bomberman",
                     "Sonic the Hedgehog",
@@ -679,8 +689,7 @@ class CategoriesService {
                     "Carnaval",
                     "Rio de Janeiro",
                     "São Paulo",
-                    "Brasília",
-                    "Amazon Rainforest",
+                    "Brasília",                    
                     "Ipanema",
                     "Capoeira",
                     "Feijoada",
@@ -739,61 +748,63 @@ class CategoriesService {
                     "Boitatá",
                     "Sapo Cururu",
                     "Curupira",
-                    "Dedo no Cu e gritaria",
+                    "Dedo no Cu e Gritaria",
                     "Pau de Selfie",
                     "Pão de Queijo",
                     "Coxinha",
                     "Brigadeiro",
                     "Pão na Chapa",
-                    "Pastel de Feira", 
-                    "Cachorro Caramelo",                  
+                    "Pastel de Feira",
+                    "Cachorro Caramelo",
+                    "Cantor de Funk",
+                    "Cantor Ventania",
+                    "Rei Pele",
+                    "Turma da Mônica",
+                    "Cavaquinho",
+
 
                 ]
             },
             {
                 code: 15,
-                title: 'Brazilian Movies and TV Shows',
-                theme: 'Brazilian Movies and TV Shows',
+                title: 'Brazilian Movies/TV',
+                theme: 'Brazilian Movies/TV',
                 words: [
-                    "City of God (Cidade de Deus)",
-                    "Central Station (Central do Brasil)",
-                    "Elite Squad (Tropa de Elite)",
-                    "The Two Popes (Dois Papas)",
+                    "Cidade de Deus",
+                    "Central do Brasil",
+                    "Tropa de Elite",
+                    "Dois Papas",
                     "Bacurau",
                     "Aquarius",
-                    "The Motorcycle Diaries (Diários de Motocicleta)",
-                    "The Elite Squad 2: The Enemy Within (Tropa de Elite 2: O Inimigo Agora é Outro)",
-                    "Brazil Avenue (Avenida Brasil)",
-                    "Redeemer (O Mecanismo)",
-                    "The Invisible Woman (A Mulher Invisível)",
-                    "The Clown (O Palhaço)",
-                    "My Hindu Friend (Meu Amigo Hindu)",
-                    "Kiss of the Spider Woman (O Beijo da Mulher Aranha)",
-                    "Four Days in September (O Que É Isso, Companheiro?)",
-                    "Elite Squad: The Enemy Within (Tropa de Elite 2: O Inimigo Agora é Outro)",
+                    "Diários de Motocicleta",
+                    "Avenida Brasil",
+                    "O Mecanismo",
+                    "A Mulher Invisível",
+                    "O Palhaço",
+                    "Meu Amigo Hindu",
+                    "O Beijo da Mulher Aranha",
+                    "FO Que É Isso, Companheiro?",
                     "Viva Voz",
-                    "Tropical Paradise (Paraíso Tropical)",
-                    "Me, You, Them (Eu, Tu, Eles)",
-                    "The Year My Parents Went on Vacation (O Ano em Que Meus Pais Saíram de Férias)",
-                    "The Tenants (Os Inquilinos)",
+                    "Paraíso Tropical",
+                    "Eu, Tu, Eles",
+                    "O Ano em Que Meus Pais Saíram de Férias",
+                    "Os Inquilinos",
                     "Aquarius",
-                    "The Second Mother (Que Horas Ela Volta?)",
-                    "Elite Squad (Tropa de Elite)",
-                    "Good Morning, Verônica (Bom Dia, Verônica)",
-                    "Shantytown (Cidade Baixa)",
+                    "Que Horas Ela Volta?",
+                    "GBom Dia, Verônica",
+                    "Cidade Baixa",
                     "Carandiru",
-                    "The King of the Cattle (O Rei do Gado)",
-                    "The Clone (O Clone)",
-                    "Burning Hearts (Fogo no Céu)",
+                    "O Rei do Gado",
+                    "O Clone",
+                    "Fogo no Céu",
                     "Favela Rising",
-                    "The Invisible Woman (A Mulher Invisível)",
-                    "Trash (Trash: A Esperança Vem do Lixo)",
-                    "The Man from the Future (O Homem do Futuro)",
-                    "Me You Them (Eu, Tu, Eles)",
-                    "Wild Tales (Relatos Selvagens)",
-                    "Narcos",                    
-                    "The Edge of Democracy (Democracia em Vertigem)",
-                    "Girl from Ipanema (Coisa Mais Linda)",
+                    "A Mulher Invisível",
+                    "Trash: A Esperança Vem do Lixo",
+                    "O Homem do Futuro",
+                    "Relatos Selvagens",
+                    "Narcos",
+                    "Democracia em Vertigem",
+                    "Coisa Mais Linda",
                     "Chaves",
                     "Carrossel",
                     "A Grande Família",
@@ -805,6 +816,13 @@ class CategoriesService {
                     "Chapolin Colorado",
                     "TV Colosso",
                     "Xuxa",
+                    "Globo Repórter",
+                    "Fantástico",
+                    "Pequenas Empresas, Grandes Negócios",
+                    "Rebeldez",
+                    "BBB",
+
+
                 ]
             },
             {
@@ -914,14 +932,15 @@ class CategoriesService {
                     "Maroon",
                     "Teal"
                 ]
-            }
+            },
+
         ];
     }
 
     static getSelectedCategories() {
-        
+
         if (typeof window === 'undefined') return [];
-        
+
         const selectedCategories = JSON.parse(localStorage.getItem('selected-categories')) || [];
         const allCategories = CategoriesService.getAllCategories();
         const selectedCategoriesData = [];
@@ -934,6 +953,16 @@ class CategoriesService {
             }
         }
 
+        if (localStorage.getItem('custom-category-selected') === 'true') {
+            if (localStorage.getItem('custom-category-words') !== null && localStorage.getItem('custom-category-title') !== null) {
+                selectedCategoriesData.push({
+                    code: 999,
+                    title: localStorage.getItem('custom-category-title') || 'Custom Category',
+                    theme: localStorage.getItem('custom-category-title') || 'Custom Category',
+                    words: JSON.parse(localStorage.getItem('custom-category-words')) || [""]
+                });
+            }
+        }
         return selectedCategoriesData;
     }
 }

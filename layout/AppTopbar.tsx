@@ -31,6 +31,14 @@ const AppTopbar = forwardRef<AppTopbarRef>((props, ref) => {
         });
     };
 
+    const displayThemeToggler = () => {
+        return (
+            <>
+                {(!layoutConfig?.theme.toLowerCase().includes('dark')) && <i onClick={() => _changeTheme('soho-dark', 'dark')} className="pi pi-moon text-cyan-600"></i>}
+                {(layoutConfig?.theme.toLowerCase().includes('dark')) && <i onClick={() => _changeTheme('soho-light', 'light')} className="pi pi-sun text-orange-500"></i>}
+            </>)
+    };
+
 
     return (
         <div className="layout-topbar">
@@ -40,19 +48,19 @@ const AppTopbar = forwardRef<AppTopbarRef>((props, ref) => {
             </button>
 
             <button ref={topbarmenubuttonRef} type="button" className="p-link layout-topbar-menu-button layout-topbar-button" onClick={showProfileSidebar}>
-                <i className="pi pi-ellipsis-v" />
+                {/* <i className="pi pi-ellipsis-v" /> */}
+                {displayThemeToggler()}
             </button>
 
             <Link href="/" className="layout-topbar-logo">
-                <img className='ml-5' src={`/layout/images/logo-${layoutConfig.colorScheme !== 'light' ? 'white' : 'dark'}.svg`} width="47.22px" height={'35px'} alt="logo" />
+                <img className='ml-5' src={`/layout/images/head_up_${layoutConfig.colorScheme === 'light' ? 'logo_dark' : 'logo_white'}.png`} width="47.22px" height={'35px'} alt="logo" />
                 <span>Heads Up</span>
             </Link>
 
 
-            <div ref={topbarmenuRef} className={classNames('layout-topbar-menu', { 'layout-topbar-menu-mobile-active': layoutState.profileSidebarVisible })}>
+            <div ref={topbarmenuRef} className={classNames('layout-topbar-menu', { 'layout-topbar-menu-mobile-active-': layoutState.profileSidebarVisible })}>
                 <button type="button" className="p-link layout-topbar-button">
-                    {(!layoutConfig?.theme.toLowerCase().includes('dark')) && <i onClick={() => _changeTheme('soho-dark', 'dark')} className="pi pi-moon text-cyan-600"></i>}
-                    {(layoutConfig?.theme.toLowerCase().includes('dark')) && <i onClick={() => _changeTheme('soho-light', 'light')} className="pi pi-sun text-orange-500"></i>}
+                    {displayThemeToggler()}
                 </button>
 
                 {/* <Link href="/settings">
