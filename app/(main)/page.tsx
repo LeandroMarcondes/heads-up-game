@@ -104,7 +104,7 @@ const Dashboard = () => {
                 <div className='flex flex-column justify-content-center align-items-center'>
                     <div className='grid max-w-30rem'>
                         <div className='col-12 md:col-6'>
-                            <h2>Buy Me a Coffe</h2>
+                            <h2>Buy Me a Coffee</h2>
                             <p>If you enjoy the game, please consider making a donation <br />
                                 I really need it.</p>
                         </div>
