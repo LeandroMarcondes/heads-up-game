@@ -61,7 +61,7 @@ const Dashboard = () => {
                                     src='/layout/images/you_guess.jpg' alt='You Guess your word' />
                             </div>
                             <div className='col-12 md:col-6 text-center'>
-                            <img className='w-100 border-round-xl max-h-20rem mt-5'
+                                <img className='w-100 border-round-xl max-h-20rem mt-5'
                                     src='/layout/images/others_guess.jpg' alt='You Guess your word' />
                             </div>
                             <div className='col-12 md:col-6 mt-5'>
@@ -103,12 +103,12 @@ const Dashboard = () => {
             <div className="donations my-5 py-5 text-center" >
                 <div className='flex flex-column justify-content-center align-items-center'>
                     <div className='grid max-w-30rem'>
-                        <div className='col'>
+                        <div className='col-12 md:col-6'>
                             <h2>Buy Me a Coffe</h2>
                             <p>If you enjoy the game, please consider making a donation <br />
                                 I really need it.</p>
                         </div>
-                        <div className='col h-full'>
+                        <div className='col-12 md:col-6 h-full'>
                             <div className='mt-5'>
                                 <Button label="Donate" icon="pi pi-heart-fill" onClick={() => window.location.href = 'https://donate.stripe.com/7sIg0ka3E4MY6TCeUU'} />
                             </div>
