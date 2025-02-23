@@ -51,7 +51,7 @@ const Dashboard = () => {
                                     <div className='flex '>
                                         <div>
                                             <p className='text-purple-400 font-semibold'><i className='pi pi-lightbulb mr-2'></i> You Guess your word </p>
-                                            <p className=''> You can hold your phone up to your forehead and try to guess the word on the screen from your friends' clues. </p>
+                                            <p className=''> You can hold your phone up to your forehead and try to guess the word on the screen from your friends clues. </p>
                                         </div>
                                     </div>
                                 </div>

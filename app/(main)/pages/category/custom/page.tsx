@@ -114,7 +114,7 @@ const FromEditCustomCategory = () => {
                                             className='w-full '
                                             value={formData?.words || []} // Fix: Ensure value is of type string[]
                                             onChange={(e) => setFormData((prevState) => ({ ...prevState, words: e?.value as string[] }))} />
-                                        <small className='text-700'>Press "Enter" to add</small>
+                                        <small className='text-700'>Press Enter to add</small>
                                     </div>
                                 </div>
                                 <div className="col-6 lg:col-6 xl:col-6">
