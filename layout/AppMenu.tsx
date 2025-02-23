@@ -1,19 +1,20 @@
 /* eslint-disable @next/next/no-img-element */
 
-import React, { useContext } from 'react';
+import React from 'react';
 import AppMenuitem from './AppMenuitem';
-import { LayoutContext } from './context/layoutcontext';
 import { MenuProvider } from './context/menucontext';
-import Link from 'next/link';
 import { AppMenuItem } from '@/types';
 
 const AppMenu = () => {
-    const { layoutConfig } = useContext(LayoutContext);
 
     const model: AppMenuItem[] = [
         {
             label: 'Home',
-            items: [{ label: 'Play The Game', icon: 'pi pi-fw pi-play', to: '/' }]
+            items: [
+                { label: 'About', icon: '', to: '/' },
+                { label: 'Play The Game', icon: 'pi pi-fw pi-play', to: '/pages/play' }
+            ]
+
         },
         {
             label: 'Categories',
@@ -34,8 +35,8 @@ const AppMenu = () => {
                 })}
 
             </ul>
-            <div style={{position:'absolute', bottom:'10px'}}>
-                <small className='text-500 mx-3'>Powered by <a target='_blank' href='https://primereact.org/'>PrimeReact</a></small>
+            <div style={{ position: 'absolute', bottom: '10px' }}>
+                <small className='text-500 mx-3'>Made With <a target='_blank' href='https://primereact.org/'>PrimeReact</a></small>
             </div>
         </MenuProvider>
     );

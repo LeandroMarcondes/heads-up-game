@@ -1,157 +1,128 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useInterval } from 'primereact/hooks';
-import GridSetCategories from '@/components/categories/GridSetCategories';
-import { Dialog } from 'primereact/dialog';
 import { Button } from 'primereact/button';
 import CategoriesService from '@/services/CategoriesService';
+import { AppTopbarRef, LayoutConfig } from '@/types';
+import { LayoutContext } from '@/layout/context/layoutcontext';
 
 const Dashboard = () => {
-    const [selectedCategories, setSelectedCategories] = useState([]);
-    const [startGameButtonVisible, setStartGameButtonVisible] = useState(false);
-    const [currentWord, setCurrentWord] = useState('');
-    const [timeToNextWord, setTimeToNextWord] = useState(5);
-    const [currentCategory, setCurrentCategory] = useState({
-        code: 0,
-        title: "",
-        theme: "",
-        words: [""]
-    });
-    const avalableWords = CategoriesService.getSelectedCategories();
-
-    useInterval(
-        () => {
-            setTimeToNextWord((prevTime) => (prevTime - 1)); //fn
-        },
-        1000,   //delay (ms)
-        timeToNextWord > 0  //condition (when)
-    );
+    const { layoutConfig } = useContext(LayoutContext);
+    const [logoTheme, setLogoTheme] = useState('logo_dark');
 
     useEffect(() => {
-        const loadedLocalStorage = localStorage.getItem('selected-categories');
-        if (!loadedLocalStorage) return;
-
-        const storedCategories = JSON.parse(loadedLocalStorage ?? '') || [];
-        setSelectedCategories(storedCategories);
-
-    }, []);
-
-    useEffect(() => {
-        if (timeToNextWord === 1) {
-            getWord();
-        }
-    }, [timeToNextWord]);
-
-
-    const onSelectCategories = (selected: number) => {
-        if (selected > 0) {
-            setStartGameButtonVisible(true);
+        if (layoutConfig?.colorScheme === 'light') {
+            setLogoTheme('logo_white');
         } else {
-            setStartGameButtonVisible(false);
+            setLogoTheme('logo_dark');
         }
-    };
-
-    const getWord = () => {
-        if (avalableWords?.length <= 0) {
-            return;
-        }
-        const _currentWord = currentWord;
-        let randomCategoryIndex = Math.floor(Math.random() * avalableWords.length);
-        let randomWordIndex = Math.floor(Math.random() * avalableWords[randomCategoryIndex].words.length);
-        let _nextCurrentWord = avalableWords[randomCategoryIndex].words[randomWordIndex];
-
-        let _tries = 0;
-        while (_nextCurrentWord === _currentWord) {
-            randomCategoryIndex = Math.floor(Math.random() * avalableWords.length);
-            randomWordIndex = Math.floor(Math.random() * avalableWords[randomCategoryIndex].words.length);
-            _nextCurrentWord = avalableWords[randomCategoryIndex].words[randomWordIndex];
-        
-            _tries++;
-            if (_tries > 10) {  // prevent infinite loop }
-                break;
-            }
-        }
-
-        setCurrentWord(_nextCurrentWord);
-        setCurrentCategory(avalableWords[randomCategoryIndex]);
-        return _nextCurrentWord;
-    };
-
-    const runTimer = () => {
-        setTimeToNextWord(5);
-    };
-
-    if (selectedCategories?.length <= 0) {
-
-        return (
-            <div className='grid'>
-                <div className='col-12 lg:col-12 xl:12 text-center'>
-                    <h1>Select Categories Before Start =^.^=</h1>
-                </div>
-                <div className='col-12 lg:col-12 xl:12'>
-                    <GridSetCategories callback={(selected: number) => { onSelectCategories(selected) }} />
-                </div>
-                <Dialog
-                    showHeader={false}
-                    visible={startGameButtonVisible}
-                    modal={false}
-                    position={'bottom-right'}
-                    className='p-0'
-                    pt={{ content: { className: 'p-0' } }}
-                    onHide={() => setStartGameButtonVisible(false)}
-                    draggable={false} resizable={false}>
-                    <Button size='large' icon='pi pi-play' className='text-2xl' label='Start' onClick={() => { window.location.href = '/' }} />
-                </Dialog>
-            </div>
-        );
-    }
-
-    if (timeToNextWord > 0) {
-        return (
-            <div className=''>
-                <div className="flex align-items-center justify-content-center">
-                    <div className="flex align-items-center justify-content-center">
-                        New Word in:
-                    </div>
-                </div>
-                <div className="flex align-items-center justify-content-center">
-                    <div className="flex align-items-center justify-content-center">
-                        <h1 className='text-6xl'>{timeToNextWord}</h1>
-                    </div>
-                </div>
-            </div>
-        );
-    }
+    }, [layoutConfig]);
 
     return (
-        <div className=''>
-            <div className="flex align-items-center justify-content-center">
+        <div >
+            <div className="hero-banner border-round-xl">
+                <div className="flex flex-column justify-content-center">
+                    <div className="flex flex-column justify-content-center align-items-center">
+                        <h1 className='text-white font-semibold text-center'>Welcome to Words Up Game</h1>
+                    </div>
+                </div>
+
+            </div>
+
+            <div className="hero-logo max-w-max" >
+                <img className='w-15rem'
+                    src={`/layout/images/head_up_${logoTheme === 'light' ? 'logo_dark' : 'logo_white'}.png`} alt="logo" />
+            </div>
+
+            <div className="h-10rem">  </div>
+            <div className="flex justify-content-center flex-wrap">
                 <div className="flex align-items-center justify-content-center">
-                    Your Word is:
+                    <div className="" style={{ maxWidth: '60rem' }}>
+                        <div className='text-left mb-5'><h2>How to Play</h2></div>
+                        <div className='grid text-lg'>
+                            <div className='col-12 text-left '>
+                                <p className='mb-0'>Words Up Game is a fun and engaging!</p>
+                                <p className=''>Select some categories and click on Play</p>
+                                <p className='text-2xl'>There are many ways to having fun  </p>
+                            </div>
+                            <div className='col-12 md:col-6 '>
+                                <div className='flex flex-wrap align-content-center h-full'>
+                                    <div className='flex '>
+                                        <div>
+                                            <p className='text-purple-400 font-semibold'><i className='pi pi-lightbulb mr-2'></i> You Guess your word </p>
+                                            <p className=''> You can hold your phone up to your forehead and try to guess the word on the screen from your friends' clues. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='col-12 md:col-6 text-center'>
+                                <img className='w-100 border-round-xl max-h-20rem mt-5'
+                                    src='/layout/images/you_guess.jpg' alt='You Guess your word' />
+                            </div>
+                            <div className='col-12 md:col-6 text-center'>
+                            <img className='w-100 border-round-xl max-h-20rem mt-5'
+                                    src='/layout/images/others_guess.jpg' alt='You Guess your word' />
+                            </div>
+                            <div className='col-12 md:col-6 mt-5'>
+                                <div className='flex flex-wrap align-content-center h-full'>
+                                    <div className='flex '>
+                                        <div>
+                                            <p className='text-purple-400 font-semibold'><i className='pi pi-comments mr-2'></i> Everyone Guess your word </p>
+                                            <p className=''> You read your words and try to act them out without speaking while everyone else tries to guess the word. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='col-12 my-5'></div>
+                            <div className='col-12 md:col-6'>
+                                <p className=''>
+                                    You can play with friends, family, or even strangers (scary). <br />
+                                    Create your own <a href='/pages/category/custom'  >
+                                        <i className="pi pi-star-fill"></i> category
+                                    </a> , with your chosen words. <br />
+
+                                </p>
+                                <p className=''>
+                                    Create your own rules and have FUN!
+                                </p>
+                            </div>
+                            <div className='col-12 md:col-6 text-center'>
+                                <div className=' mb-5'><h2>Ready to Play?</h2></div>
+                                <Button label="Start Game" icon="pi pi-play" onClick={() => window.location.href = '/pages/play'} />
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
-            <div className="flex align-items-center justify-content-center">
-                <div className="flex align-items-center justify-content-center">
-                    <h1 className='text-6xl'>{currentWord}</h1>
-                    {!currentWord && <h1 className='text-3xl'>Que isso Magida!!</h1>}
-                </div>
-            </div>
-            <div className="flex align-items-end justify-content-between h-4rem my-3 pb-3">
-                <div className="flex align-items-center justify-content-center mr-2">
-                    <small className='text-700'>Theme: {currentCategory?.title}</small>
-                </div>
-                <div className="flex align-items-center justify-content-center">
-                    <Button
-                        onClick={() => runTimer()}
-                        label="Change"
-                        icon='pi pi-angle-double-right'
-                        iconPos="right"
-                        className="p-button-success" />
+
+            <div className="play-game my-5 h-5rem" ></div>
+
+            {/* Donations Section */}
+            <div className="donations my-5 py-5 text-center" >
+                <div className='flex flex-column justify-content-center align-items-center'>
+                    <div className='grid max-w-30rem'>
+                        <div className='col'>
+                            <h2>Buy Me a Coffe</h2>
+                            <p>If you enjoy the game, please consider making a donation <br />
+                                I really need it.</p>
+                        </div>
+                        <div className='col h-full'>
+                            <div className='mt-5'>
+                                <Button label="Donate" icon="pi pi-heart-fill" onClick={() => window.location.href = 'https://donate.stripe.com/7sIg0ka3E4MY6TCeUU'} />
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
         </div>
+
     );
+
+
 };
 
 export default Dashboard;

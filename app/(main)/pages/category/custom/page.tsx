@@ -81,7 +81,7 @@ const FromEditCustomCategory = () => {
     return (
         <>
             <Toast ref={saveToast} />
-            <div className="grid py-3" style={{ maxWidth: '50rem' }}>
+            <div className="grid py-3" style={{ maxWidth: '50rem' , margin: '0 auto'}}>
                 <div className="col-12 lg:col-12 xl:col-12">
                     <div className="card">
                         <div className="card-body">
@@ -111,9 +111,10 @@ const FromEditCustomCategory = () => {
                                     <div className="flex flex-column gap-2 p-fluid">
                                         <label htmlFor="categoryWords">Words</label>
                                         <Chips
-                                            className='w-full'
+                                            className='w-full '
                                             value={formData?.words || []} // Fix: Ensure value is of type string[]
                                             onChange={(e) => setFormData((prevState) => ({ ...prevState, words: e?.value as string[] }))} />
+                                        <small className='text-700'>Press "Enter" to add</small>
                                     </div>
                                 </div>
                                 <div className="col-6 lg:col-6 xl:col-6">

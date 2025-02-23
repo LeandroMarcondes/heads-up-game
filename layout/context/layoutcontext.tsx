@@ -12,13 +12,13 @@ export const LayoutProvider = ({ children }: ChildContainerProps) => {
             localColorScheme = localStorage.getItem('layout-color-scheme');
         }
 
-        const theme = 'soho-' + (localColorScheme ? localColorScheme : 'light');
+        const theme = 'soho-' + (localColorScheme ? localColorScheme : 'dark');
         
         return {
             ripple: true,
             inputStyle: 'outlined',
             menuMode: 'static',
-            colorScheme: localColorScheme ? localColorScheme : 'light',
+            colorScheme: localColorScheme ? localColorScheme : 'dark',
             theme: theme,
             scale: 16
         };

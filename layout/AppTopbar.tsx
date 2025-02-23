@@ -54,7 +54,7 @@ const AppTopbar = forwardRef<AppTopbarRef>((props, ref) => {
 
             <Link href="/" className="layout-topbar-logo">
                 <img className='ml-5' src={`/layout/images/head_up_${layoutConfig.colorScheme === 'light' ? 'logo_dark' : 'logo_white'}.png`} width="47.22px" height={'35px'} alt="logo" />
-                <span>Heads Up</span>
+                <span>Words Up</span>
             </Link>
 
 

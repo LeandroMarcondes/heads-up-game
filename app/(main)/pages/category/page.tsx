@@ -13,7 +13,7 @@ const selectCategories = () => {
             </div>
 
             <GridSetCategories />
-            
+
         </>
     );
 

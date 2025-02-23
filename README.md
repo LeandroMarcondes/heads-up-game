@@ -1,2 +1,2 @@
-# heads-up-game
-The game Heads Up made for fun. Using PrimeReact.  
+# words-up-game
+The game Words Up made for fun. Using PrimeReact.  
