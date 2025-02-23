@@ -44,10 +44,10 @@ const Layout = ({ children }: ChildContainerProps) => {
         setRipple?.(true);
         
         const colorScheme = localStorage.getItem('layout-color-scheme');
-        if (colorScheme === 'dark') {
-            changeTheme?.('soho-light', 'soho-dark', 'theme-css');
-        }else{
+        if (colorScheme === 'light') {
             changeTheme?.('soho-dark', 'soho-light', 'theme-css');
+        }else{
+            changeTheme?.('soho-light', 'soho-dark', 'theme-css');
         }        
     }, [pathname, searchParams]);
 
@@ -142,7 +142,7 @@ const Layout = ({ children }: ChildContainerProps) => {
                     <div className="layout-main">{children}</div>
                     <AppFooter />
                 </div>
-                <AppConfig />
+                
                 <div className="layout-mask"></div>
             </div>
         </React.Fragment>
