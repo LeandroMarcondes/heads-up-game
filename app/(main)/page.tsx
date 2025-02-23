@@ -69,7 +69,7 @@ const Dashboard = () => {
                                     <div className='flex '>
                                         <div>
                                             <p className='text-purple-400 font-semibold'><i className='pi pi-comments mr-2'></i> Everyone Guess your word </p>
-                                            <p className=''> You read your words and try to act them out without speaking while everyone else tries to guess the word. </p>
+                                            <p className=''> You read your words and try to act them out without speaking while everyone else tries to guess the word.</p>
                                         </div>
                                     </div>
                                 </div>
