@@ -44,7 +44,7 @@ const Dashboard = () => {
                             <div className='col-12 text-left '>
                                 <p className='mb-0'>Words Up Game is fun and engaging!</p>
                                 <p className=''>Select some categories and click on Play</p>
-                                <p className='text-2xl'>There are many ways to having fun  </p>
+                                <p className='text-2xl'>There are many ways to have fun  </p>
                             </div>
                             <div className='col-12 md:col-6 '>
                                 <div className='flex flex-wrap align-content-center h-full'>
