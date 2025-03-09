@@ -42,7 +42,7 @@ const Dashboard = () => {
                         <div className='text-left mb-5'><h2>How to Play</h2></div>
                         <div className='grid text-lg'>
                             <div className='col-12 text-left '>
-                                <p className='mb-0'>Words Up Game is a fun and engaging!</p>
+                                <p className='mb-0'>Words Up Game is fun and engaging!</p>
                                 <p className=''>Select some categories and click on Play</p>
                                 <p className='text-2xl'>There are many ways to having fun  </p>
                             </div>
