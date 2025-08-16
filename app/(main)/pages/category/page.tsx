@@ -2,6 +2,7 @@
 'use client';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import GridSetCategories from '../../../../components/categories/GridSetCategories';
+import { Button } from 'primereact/button';
 
 const selectCategories = () => {
     return (
@@ -12,8 +13,7 @@ const selectCategories = () => {
                 </div>
             </div>
 
-            <GridSetCategories />
-
+            <GridSetCategories />            
         </>
     );
 

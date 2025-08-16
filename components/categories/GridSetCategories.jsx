@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import CategoriesService from '../../services/CategoriesService';
 import { Button } from 'primereact/button';
 import { classNames } from 'primereact/utils';
+import { Dialog } from 'primereact/dialog';
 
 const GridSetCategories = ({ callback }) => {
     const [selectedCategories, setSelectedCategories] = useState([]);
     const [allSelect, setAllSelect] = useState(false);
+    const [startGameButtonVisible, setStartGameButtonVisible] = useState(false);
     const [isCustomSelected, setIsCustomSelected] = useState(false);
     const allCategories = CategoriesService.getAllCategories();
 
@@ -15,9 +17,17 @@ const GridSetCategories = ({ callback }) => {
         setIsCustomSelected(localStorage.getItem('custom-category-selected') === 'true' ? true : false);
     }, []);
 
+    useEffect(() => {
+        if (selectedCategories.length > 0) {
+            setStartGameButtonVisible(true);
+        } else {    
+            setStartGameButtonVisible(false);
+        }
+    }, [selectedCategories]);
+
     const isCategorySelected = (categoryCode) => {
         return selectedCategories.includes(categoryCode);
-    };
+    };    
 
     const toggleCategory = (categoryCode) => {
         let updatedCategories;
@@ -108,6 +118,19 @@ const GridSetCategories = ({ callback }) => {
                 {allCategories.map(category => (
                     displayCategory(category)
                 ))}
+
+
+                <Dialog
+                    showHeader={false}
+                    visible={startGameButtonVisible}
+                    modal={false}
+                    position={'bottom-right'}
+                    className='p-0'
+                    pt={{ content: { className: 'p-0' } }}
+                    onHide={() => setStartGameButtonVisible(false)}
+                    draggable={false} resizable={false}>
+                    <Button size='large' icon='pi pi-play' className='text-2xl' label='Start' onClick={() => { window.location.href = '/pages/play' }} />
+                </Dialog>
             </div>
         </>
     );

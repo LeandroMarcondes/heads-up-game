@@ -10,8 +10,7 @@ import { Skeleton } from 'primereact/skeleton';
 
 const PlayGame = () => {
     const [selectedCategories, setSelectedCategories] = useState([]);
-    const [IsCategoriesReady, setIsCategoriesReady] = useState(false);
-    const [startGameButtonVisible, setStartGameButtonVisible] = useState(false);
+    const [IsCategoriesReady, setIsCategoriesReady] = useState(false);    
     const [currentWord, setCurrentWord] = useState('');
     const [timeToNextWord, setTimeToNextWord] = useState(5);
     const [currentCategory, setCurrentCategory] = useState({
@@ -51,11 +50,7 @@ const PlayGame = () => {
 
 
     const onSelectCategories = (selected: number) => {
-        if (selected > 0) {
-            setStartGameButtonVisible(true);
-        } else {
-            setStartGameButtonVisible(false);
-        }
+       
     };
 
     const getWord = () => {
@@ -105,17 +100,7 @@ const PlayGame = () => {
                 <div className='col-12 lg:col-12 xl:12'>
                     <GridSetCategories callback={(selected: number) => { onSelectCategories(selected) }} />
                 </div>
-                <Dialog
-                    showHeader={false}
-                    visible={startGameButtonVisible}
-                    modal={false}
-                    position={'bottom-right'}
-                    className='p-0'
-                    pt={{ content: { className: 'p-0' } }}
-                    onHide={() => setStartGameButtonVisible(false)}
-                    draggable={false} resizable={false}>
-                    <Button size='large' icon='pi pi-play' className='text-2xl' label='Start' onClick={() => { window.location.href = '/pages/play' }} />
-                </Dialog>
+                
             </div>
         );
     }
